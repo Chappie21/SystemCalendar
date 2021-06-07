@@ -38,4 +38,10 @@ public class Database {
 		return dt;
 	}
 	
+	public static void main(String agrs[]) {
+		
+		Database d = Database.getInstance();		
+	}
+	
+	
 }
