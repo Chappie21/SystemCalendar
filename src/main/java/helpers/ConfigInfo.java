@@ -16,6 +16,8 @@ public class ConfigInfo {
 	public String user;
 	public String password;
 	public String driver;
+	public String RegisterSQL;
+	public String usersSQL;
 	
 	// INSTANCIA
 	private static ConfigInfo props = new ConfigInfo();
@@ -35,8 +37,9 @@ public class ConfigInfo {
 			this.database = this.config.getProperty("database");
 			this.user = this.config.getProperty("user");
 			this.password = this.config.getProperty("password");
-			
-			
+			this.RegisterSQL = this.config.getProperty("registrarUser");
+			this.usersSQL = this.config.getProperty("users");
+
 		}catch(IOException e) {
 			System.out.println("Error al leer archivo de propiedades: " + e.getMessage());
 		}finally {

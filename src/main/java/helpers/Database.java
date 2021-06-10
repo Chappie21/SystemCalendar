@@ -34,14 +34,16 @@ public class Database {
 		
 	}
 	
+	public Connection getConnetion(){
+		return this.cn;
+	}
+
 	public static Database getInstance() {
 		return dt;
 	}
-	
-	public static void main(String agrs[]) {
-		
-		Database d = Database.getInstance();		
+
+	public static void main(String args[]){
+		Database d = Database.getInstance();
 	}
-	
 	
 }
