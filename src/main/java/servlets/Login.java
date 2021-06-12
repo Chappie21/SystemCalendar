@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import controllers.RegistrarUsuario;
 /**
  * Servlet implementation class Login
  */
+@MultipartConfig()
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,12 +40,14 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+
 		String UserName_Correo = request.getParameter("UserName");
 		String Clave = request.getParameter("Clave");
 
 		// PREPARAR RESPUESTA
 		response.setContentType("application/json");
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		PrintWriter out = response.getWriter();
 		String json = ""; // JSON DE RESPUESTA
 
@@ -52,9 +56,9 @@ public class Login extends HttpServlet {
 		
 		// EN CASO DE EXITO ENVÍA MENSAJE EXITO, EN CASO DE ERROR ES ALGUNA CREDENCIAL INVALIDA
 		if(exito){
-			json = "status: '200', message: 'Login correcto'";
+			json = "{\"status\": 200, \"message\": \"Login correcto\"}";
 		}else{
-			json = "status: '500', message: 'Credenciales incorrectas'";
+			json = "{\"status\": 500, \"message\": \"Credenciales incorrectas\"}";
 		}
 
 		out.print(json);
