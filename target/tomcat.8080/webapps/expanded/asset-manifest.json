@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.18b9635c.chunk.css",
-    "main.js": "/static/js/main.b7a803df.chunk.js",
-    "main.js.map": "/static/js/main.b7a803df.chunk.js.map",
+    "main.css": "/static/css/main.76c45fec.chunk.css",
+    "main.js": "/static/js/main.443cbecf.chunk.js",
+    "main.js.map": "/static/js/main.443cbecf.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9f775dd8.js",
     "runtime-main.js.map": "/static/js/runtime-main.9f775dd8.js.map",
-    "static/js/2.8d39e231.chunk.js": "/static/js/2.8d39e231.chunk.js",
-    "static/js/2.8d39e231.chunk.js.map": "/static/js/2.8d39e231.chunk.js.map",
+    "static/js/2.e72ba86b.chunk.js": "/static/js/2.e72ba86b.chunk.js",
+    "static/js/2.e72ba86b.chunk.js.map": "/static/js/2.e72ba86b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.18b9635c.chunk.css.map": "/static/css/main.18b9635c.chunk.css.map",
-    "static/js/2.8d39e231.chunk.js.LICENSE.txt": "/static/js/2.8d39e231.chunk.js.LICENSE.txt",
-    "static/media/PrincipalComponents.css": "/static/media/fondo2.6f22d021.jpg"
+    "static/css/main.76c45fec.chunk.css.map": "/static/css/main.76c45fec.chunk.css.map",
+    "static/js/2.e72ba86b.chunk.js.LICENSE.txt": "/static/js/2.e72ba86b.chunk.js.LICENSE.txt",
+    "static/media/Register.css": "/static/media/RegisterFondo.9679f7b7.png"
   },
   "entrypoints": [
     "static/js/runtime-main.9f775dd8.js",
-    "static/js/2.8d39e231.chunk.js",
-    "static/css/main.18b9635c.chunk.css",
-    "static/js/main.b7a803df.chunk.js"
+    "static/js/2.e72ba86b.chunk.js",
+    "static/css/main.76c45fec.chunk.css",
+    "static/js/main.443cbecf.chunk.js"
   ]
 }
