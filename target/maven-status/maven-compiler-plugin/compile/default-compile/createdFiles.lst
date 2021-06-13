@@ -1,5 +1,5 @@
 controllers/RegistrarUsuario.class
 servlets/Register.class
 helpers/ConfigInfo.class
-helpers/Database.class
 servlets/Login.class
+helpers/Database.class

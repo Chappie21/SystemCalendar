@@ -14,7 +14,7 @@ import controllers.RegistrarUsuario;
 /**
  * Servlet implementation class Register
  */
-@MultipartConfig()
+@MultipartConfig
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -71,7 +71,7 @@ public class Register extends HttpServlet {
 			}
 		} catch (Exception e) {
 			System.out.println("Error al realizar proceso -> REGISTER: " + e.getMessage());
-			json = "{\"status\": 500, \"message\": \"Error al registrar usuario\"}";
+			json = "{\"status\": 500, \"message\": \"Error al consultar con el servidor\"}";
 		}
 
 		// ENVIAR RESPUESTA

@@ -102,11 +102,11 @@ public class RegistrarUsuario {
 		
 	}
 
-	public static boolean LoginUser(String...datos){
+	public static Object[] LoginUser(String...datos){
 
 		Connection connection = db.getConnetion(); // obtenher conexion
 
-		String hash = Hashing(datos[1]); // realziar hasing de contraseña
+		String hash = Hashing(datos[1]); // realziar hasing de contraseñ
 
 		try {
 			Statement stm = connection.createStatement();
@@ -118,7 +118,8 @@ public class RegistrarUsuario {
 				if(datos[0].equals(rs.getString("Name_user")) || datos[0].equals(rs.getString("Correo_user"))){
 
 					if(hash.equals(rs.getString("Clave_user"))){
-						return true; /* LOGEADO CON EXITO*/
+						Object info[] = {true, Integer.parseInt(rs.getString("Id_user")), rs.getString("Name_user")};
+						return info; /* LOGEADO CON EXITO*/
 					}
 
 				}
@@ -132,7 +133,9 @@ public class RegistrarUsuario {
 			System.out.println("Error al consultar usuarios: " + e.getMessage());
 		}
 
-		return false; /* ERROR DE LOGUEO */
+		Object info[] = {false};
+
+		return info; /* ERROR DE LOGUEO */
 	}
 
 }

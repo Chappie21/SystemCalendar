@@ -5,9 +5,6 @@ import java.sql.*;
 public class Database {
 	
 	private Connection cn;
-	private Statement stmt;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
 	
 	// INSTANCIA CON LA CLASE DE CONFIGURACION CENTRALIZADA
 	private ConfigInfo conf = ConfigInfo.getInstance();
@@ -40,10 +37,6 @@ public class Database {
 
 	public static Database getInstance() {
 		return dt;
-	}
-
-	public static void main(String args[]){
-		Database d = Database.getInstance();
 	}
 	
 }

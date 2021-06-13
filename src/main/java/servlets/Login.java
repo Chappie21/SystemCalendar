@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controllers.RegistrarUsuario;
 
@@ -52,12 +53,19 @@ public class Login extends HttpServlet {
 		String json = ""; // JSON DE RESPUESTA
 
 		// VERIFICAR EXISTENCIA DEL USUARIO Y SUS CREDENCIALES
-		boolean exito = RegistrarUsuario.LoginUser(UserName_Correo, Clave);
+		Object exito[] = RegistrarUsuario.LoginUser(UserName_Correo, Clave);
 		
 		// EN CASO DE EXITO ENVÍA MENSAJE EXITO, EN CASO DE ERROR ES ALGUNA CREDENCIAL INVALIDA
-		if(exito){
-			json = "{\"status\": 200, \"message\": \"Login correcto\"}";
+		if((boolean) exito[0]){
+			// Obtener la sesion
+			HttpSession sesion = request.getSession(); 
+			sesion.setAttribute("Login", true);
+			sesion.setAttribute("Id_user", (Integer) exito[1]);
+
+			// respuesta
+			json = "{\"status\": 200, \"message\": \"Login correcto\", \"UserName\": \"" + (String) exito[2] +"\"}";
 		}else{
+			//respuesta
 			json = "{\"status\": 500, \"message\": \"Credenciales incorrectas\"}";
 		}
 

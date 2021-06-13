@@ -18,7 +18,10 @@ public class ConfigInfo {
 	public String driver;
 	public String RegisterSQL;
 	public String usersSQL;
-	
+	public String addCalendarSQL;
+	public String deleteCalendarSQL;
+	public String editCalendarSQL;
+
 	// INSTANCIA
 	private static ConfigInfo props = new ConfigInfo();
 	
@@ -39,6 +42,9 @@ public class ConfigInfo {
 			this.password = this.config.getProperty("password");
 			this.RegisterSQL = this.config.getProperty("registrarUser");
 			this.usersSQL = this.config.getProperty("users");
+			this.addCalendarSQL = this.config.getProperty("crearCalendario");
+			this.deleteCalendarSQL = this.config.getProperty("borrarCalendario");
+			this.editCalendarSQL = this.config.getProperty("editarCalendario");
 
 		}catch(IOException e) {
 			System.out.println("Error al leer archivo de propiedades: " + e.getMessage());
