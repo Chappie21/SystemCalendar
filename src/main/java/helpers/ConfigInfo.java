@@ -21,6 +21,10 @@ public class ConfigInfo {
 	public String addCalendarSQL;
 	public String deleteCalendarSQL;
 	public String editCalendarSQL;
+	public String inviteCalendarSQL;
+	public String deleteInvitedCalendarSQL;
+	public String crearEventoSQL;
+	public String borrarEventoSQL;
 
 	// INSTANCIA
 	private static ConfigInfo props = new ConfigInfo();
@@ -45,6 +49,10 @@ public class ConfigInfo {
 			this.addCalendarSQL = this.config.getProperty("crearCalendario");
 			this.deleteCalendarSQL = this.config.getProperty("borrarCalendario");
 			this.editCalendarSQL = this.config.getProperty("editarCalendario");
+			this.inviteCalendarSQL = this.config.getProperty("invitarCalendario");
+			this.deleteInvitedCalendarSQL = this.config.getProperty("elimitadeInvitedCalendar");
+			this.crearEventoSQL = this.config.getProperty("crearEvento");
+			this.borrarEventoSQL = this.config.getProperty("borrarEvento");
 
 		}catch(IOException e) {
 			System.out.println("Error al leer archivo de propiedades: " + e.getMessage());

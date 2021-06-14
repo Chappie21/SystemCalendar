@@ -61,6 +61,7 @@ public class Login extends HttpServlet {
 			HttpSession sesion = request.getSession(); 
 			sesion.setAttribute("Login", true);
 			sesion.setAttribute("Id_user", (Integer) exito[1]);
+			sesion.setAttribute("NameUser", (String) exito[2]);
 
 			// respuesta
 			json = "{\"status\": 200, \"message\": \"Login correcto\", \"UserName\": \"" + (String) exito[2] +"\"}";

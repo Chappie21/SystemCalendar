@@ -62,10 +62,11 @@ public class Calendar extends HttpServlet {
 			String Color_C = (String) request.getParameter("Color_Calendar");
 			int Id_user = (Integer) sesion.getAttribute("Id_user");
 
-			boolean exito = CalednarController.Crate_Calendar(Nombre_C, Descripcion_C, Color_C, Id_user);
+			int id_calendario = CalednarController.Crate_Calendar(Nombre_C, Descripcion_C, Color_C, Id_user);
 
-			if (exito) {
-				json = "{\"status\": 200, \"msg\": \"Calendario creado!!!\"}";
+			if (id_calendario != 0){
+				json = "{\"status\": 200, \"msg\": \"Calendario creado!!!\",";
+				json += "\"Actividad_id\":"+id_calendario+"}";
 			} else {
 				json = "{\"status\": 400, \"msg\": \"Error al crear el calendario\"}";
 			}
@@ -94,7 +95,7 @@ public class Calendar extends HttpServlet {
 
 			String Id_data = request.getParameter("Id_Calendar");
 
-			int Id_Calendario =Integer.parseInt(Id_data); 
+			int Id_Calendario = Integer.parseInt(Id_data);
 
 			boolean exito = CalednarController.Delete_Calendar(Id_Calendario);
 
