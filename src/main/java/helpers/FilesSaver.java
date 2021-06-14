@@ -3,6 +3,7 @@ package helpers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.http.HttpRequest;
 
@@ -35,7 +36,7 @@ public class FilesSaver {
             // PREAPARAR SALIDA DE ARCHIVO
             FileOutputStream out = new FileOutputStream(filefinal);
             
-            out.write(dataFile.getInputStream().readAllBytes()); // CREAR COPIA DEL ARCHIVO
+            buildFile(dataFile.getInputStream(), out);// CREAR COPIA DEL ARCHIVO
 
             return filefinal.getAbsolutePath(); /* En caso de no haber error, retorna la ruta */
 
@@ -44,6 +45,21 @@ public class FilesSaver {
         }
 
         return "";
+    }
+
+    // CONSTRUIR ARCHIVO
+    private static void buildFile(InputStream file, FileOutputStream out){
+
+        int read = 0;
+        final byte[] bytes = new byte[1024];
+        try{
+            while((read = file.read(bytes)) != -1){
+                out.write(bytes, 0, read);
+            }
+        }catch(IOException e){
+            System.out.println("Error al construir archivo: " + e.getMessage());
+        }
+
     }
 
     // Obtener nombre de archivo
