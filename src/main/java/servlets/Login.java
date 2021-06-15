@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,6 +63,15 @@ public class Login extends HttpServlet {
 			sesion.setAttribute("Login", true);
 			sesion.setAttribute("Id_user", (Integer) exito[1]);
 			sesion.setAttribute("NameUser", (String) exito[2]);
+
+			// Cookie CookieLogin = new Cookie("Login", "true");
+			// CookieLogin.setMaxAge(120);
+
+			// Cookie CookieId = new Cookie("Id_user", "" + (Integer) exito[1]);
+			// CookieId.setMaxAge(120);
+
+			// response.addCookie(CookieLogin);
+			// response.addCookie(CookieId);
 
 			// respuesta
 			json = "{\"status\": 200, \"message\": \"Login correcto\", \"UserName\": \"" + (String) exito[2] +"\"}";

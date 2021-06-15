@@ -4,6 +4,9 @@ import helpers.ConfigInfo;
 import helpers.Database;
 import java.sql.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import helpers.Calendario;
 
 public class CalednarController {
 
@@ -152,4 +155,55 @@ public class CalednarController {
 
         return false;
     }
+
+    // OBTENER CALENDARIOS DEL USUARIO
+    public static String getCalendars(int Iduser){
+
+        ArrayList<Calendario> Lista = new ArrayList<>();
+        Connection cn = db.getConnetion();
+
+        try{
+            PreparedStatement pstm = cn.prepareStatement(conf.obtenerCalendarios);
+            pstm.setInt(1, Iduser);
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()){
+
+                Lista.add(new Calendario(rs.getInt(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getString(5)));
+
+            }
+
+            rs.close();
+            pstm.close();
+
+            return jsonCalendars(Lista);
+
+        }catch(SQLException e){
+            System.out.println("Error al obtener calendarios: " + e.getMessage());
+        }
+
+        return null; /*En caso de error*/
+    }
+
+    // GENERACION DE UN JSON CON TODOS LOS CALENDARIOS PERTENECIENTES A EL USAURIO
+    private static String jsonCalendars(ArrayList<Calendario> list){
+        
+        StringBuilder json = new StringBuilder();
+
+        json.append("{\"status\": 200, \"msg\": \"calendarios obtenidos!!!\", \"Calendarios\": [");
+
+        for(Calendario cal: list){
+            json.append("{\"Id_calendario\":" + cal.getId() + ",\"Nombre_calendario\": " +"\""+ cal.getNombre() + "\""
+                + ", \"Descripcion_calendario\": "  +"\"" + cal.getDescripcion()  +"\"" + ", \"Color_calendario\": " + "\"" + cal.getColor() +"\""
+                + ", \"rol\": " + "\"" + cal.getRol() + "\"" + "},");
+        }
+        json.deleteCharAt(json.lastIndexOf(","));
+
+        json.append("] }");
+
+        return json.toString();
+    }
+
+
 }
