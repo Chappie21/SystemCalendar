@@ -120,7 +120,7 @@ public class Calendar extends HttpServlet {
 
 		if (helpLogin.isLogin(request)) {
 
-			String Id_data = request.getParameter("Id_Calendar");
+			String Id_data = request.getParameter("Id_calendario");
 
 			int Id_Calendario = Integer.parseInt(Id_data);
 
@@ -154,10 +154,10 @@ public class Calendar extends HttpServlet {
 
 		if (helpLogin.isLogin(request)) {
 
-			String Id_Calendario = request.getParameter("Id_Calendar");
-			String Nombre_Calendario = request.getParameter("Name_Calendar");
-			String Descripcion_Calendario = request.getParameter("Description_Calendar");
-			String Color_Calendario = request.getParameter("Color_Calendar");
+			String Id_Calendario = request.getParameter("Id_calendario");
+			String Nombre_Calendario = request.getParameter("Nombre_calendario");
+			String Descripcion_Calendario = request.getParameter("Descripcion_calendario");
+			String Color_Calendario = request.getParameter("Color_calendario");
 
 
 			boolean exito = CalednarController.Edit_Calendar(Nombre_Calendario, 
