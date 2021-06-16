@@ -62,10 +62,10 @@ public class InviteCalendar extends HttpServlet {
 
 		if (helpLogin.isLogin(request)) {
 
-			String Id_Calendar = request.getParameter("Id_Calendar");
-			String Invitado = request.getParameter("Invitado");
+			String Id_Calendar = request.getParameter("Id_calendario");
+			String Invitado = request.getParameter("Correo_usuario");
 
-			boolean exito = CalednarController.Invite_Calendar(Integer.parseInt(Invitado),
+			boolean exito = CalednarController.Invite_Calendar(Invitado,
 					Integer.parseInt(Id_Calendar));
 
 			if (exito) {
@@ -97,10 +97,10 @@ public class InviteCalendar extends HttpServlet {
 
 		if (helpLogin.isLogin(request)) {
 
-			String Id_Calendar = request.getParameter("Id_Calendar");
-			String Invitado = request.getParameter("Invitado");
+			String Id_Calendar = request.getParameter("Id_calendario");
+			String Invitado = request.getParameter("Correo_usuario");
 
-			boolean exito = CalednarController.eliminate_invitade_User(Integer.parseInt(Invitado),
+			boolean exito = CalednarController.eliminate_invitade_User(Invitado,
 					Integer.parseInt(Id_Calendar));
 
 			if (exito) {

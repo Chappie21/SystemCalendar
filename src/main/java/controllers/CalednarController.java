@@ -97,15 +97,15 @@ public class CalednarController {
     }
 
     // INVITAR USUARIO
-    public static boolean Invite_Calendar(int... datos) {
+    public static boolean Invite_Calendar(Object...datos) {
 
         Connection cn = db.getConnetion();
 
         try {
             PreparedStatement pstm = cn.prepareStatement(conf.inviteCalendarSQL);
 
-            pstm.setInt(1, datos[0]);
-            pstm.setInt(2, datos[1]);
+            pstm.setString(1, (String) datos[0]);
+            pstm.setInt(2, (Integer) datos[1]);
 
             ResultSet rs = pstm.executeQuery();
 
@@ -127,15 +127,15 @@ public class CalednarController {
     }
 
     // ELIMINAR INVITACION
-    public static boolean eliminate_invitade_User(int... datos) {
+    public static boolean eliminate_invitade_User(Object...datos) {
 
         Connection cn = db.getConnetion();
 
         try {
             PreparedStatement pstm = cn.prepareStatement(conf.deleteInvitedCalendarSQL);
 
-            pstm.setInt(1, datos[0]);
-            pstm.setInt(2, datos[1]);
+            pstm.setString(1, (String) datos[0]);
+            pstm.setInt(2, (Integer) datos[1]);
 
             ResultSet rs = pstm.executeQuery();
 

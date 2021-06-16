@@ -93,7 +93,7 @@ public class Calendar extends HttpServlet {
 
 			if (id_calendario != 0){
 				json = "{\"status\": 200, \"msg\": \"Calendario creado!!!\",";
-				json += "\"Actividad_id\":"+id_calendario+"}";
+				json += "\"Calendario_id\":"+id_calendario+"}";
 			} else {
 				json = "{\"status\": 400, \"msg\": \"Error al crear el calendario\"}";
 			}
