@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
 			HttpSession sesion = request.getSession(); 
 			sesion.setAttribute("Login", true);
 			sesion.setAttribute("Id_user", (Integer) exito[1]);
-			sesion.setAttribute("NameUser", (String) exito[2]);
+			sesion.setAttribute("Correo", (String) exito[3]);
 
 			// Cookie CookieLogin = new Cookie("Login", "true");
 			// CookieLogin.setMaxAge(120);
@@ -74,7 +74,7 @@ public class Login extends HttpServlet {
 			// response.addCookie(CookieId);
 
 			// respuesta
-			json = "{\"status\": 200, \"message\": \"Login correcto\", \"UserName\": \"" + (String) exito[2] +"\"}";
+			json = "{\"status\": 200, \"message\": \"Login correcto\", \"UserName\": \"" + (String) exito[2] +"\", " + "\"CorreoUser\": \"" + (String) exito[3] + "\""+ "}";
 		}else{
 			//respuesta
 			json = "{\"status\": 500, \"message\": \"Credenciales incorrectas\"}";

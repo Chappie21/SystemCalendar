@@ -20,7 +20,7 @@ public class RegistrarUsuario {
 	// CONSTRUCTOR VACIO
     private RegistrarUsuario() {}
     
-	private static String Hashing(String clave) {
+	public static String Hashing(String clave) {
 		
 		byte[] ClaveBytes = clave.getBytes(); // obtener bytes de la clave
 		
@@ -118,7 +118,7 @@ public class RegistrarUsuario {
 				if(datos[0].equals(rs.getString("Name_user")) || datos[0].equals(rs.getString("Correo_user"))){
 
 					if(hash.equals(rs.getString("Clave_user"))){
-						Object info[] = {true, Integer.parseInt(rs.getString("Id_user")), rs.getString("Name_user")};
+						Object info[] = {true, Integer.parseInt(rs.getString("Id_user")), rs.getString("Name_user"), rs.getString("Correo_user")};
 						return info; /* LOGEADO CON EXITO*/
 					}
 

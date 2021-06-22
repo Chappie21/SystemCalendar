@@ -44,7 +44,7 @@ public class Calendar extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String json = ""; // JSON DE RESPUESTA
 		HttpSession sesion = request.getSession();
-		
+
 		if (helpLogin.isLogin(request)) {
 
 			int Id_user = (Integer) sesion.getAttribute("Id_user");
@@ -53,11 +53,14 @@ public class Calendar extends HttpServlet {
 
 			json = CalednarController.getCalendars(Id_user);
 
+			// SI EL JSON ES NULO HUBO UN ERROR
 			if(json == null){
+				
 				json = "{\"status\": 200, \"msg\": \"Error al obtener calendarios\"}";
 			}
 		
 		} else {
+			System.out.println("fallo");
 			json = "{\"status\": 400, \"msg\": \"Usuario no logueado\"}";
 		}
 
