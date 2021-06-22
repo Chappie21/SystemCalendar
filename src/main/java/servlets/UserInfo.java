@@ -99,6 +99,7 @@ public class UserInfo extends HttpServlet {
 
 			if(exito){
 				json = "{\"status\": 200, \"msg\": \"Usuario eliminado\"}";
+				sesion.invalidate(); // se invalida la sesion;
 			}else{
 				json = "{\"status\": 500, \"msg\": \"Error al eliminar cuenta\"}";
 			}

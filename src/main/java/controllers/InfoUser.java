@@ -95,15 +95,16 @@ public class InfoUser {
             PreparedStatement pstm = cn.prepareStatement(conf.borrarUsuario);
             pstm.setInt(1, id_user);
             
-            int result = pstm.executeUpdate();
+            ResultSet rs = pstm.executeQuery();
 
+            rs.next();
+
+            boolean exito = rs.getBoolean(1);
+
+            rs.close();
             pstm.close();
 
-            if(result > 0){
-                return true;
-            }else{
-                return false;
-            }
+            return exito;
             
         }catch(SQLException e){
             System.out.println("Error al eliminar usuario: " + e.getMessage());
